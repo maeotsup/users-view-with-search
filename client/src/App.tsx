@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import { User } from './types/User';
+import { TUser } from '../../server/src/types/TUser';
 
 function App() {
-  const [users, setUsers] = useState<User[]>([]);
+  const [users, setUsers] = useState<TUser[]>([]);
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/users')
+    fetch('/api/users')
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
