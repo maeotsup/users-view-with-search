@@ -1,7 +1,9 @@
 {
-  "name": "users-view-with-search",
+  "name": "users-view-with-search-client",
+  "author": "Peeter Mäeots",
   "version": "0.1.0",
   "private": true,
+  "description": "A React.js client to show users table view with search by name functionality",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
