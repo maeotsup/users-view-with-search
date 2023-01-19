@@ -1,7 +1,9 @@
 {
-  "name": "users-view-with-search",
+  "name": "users-view-with-search-client",
+  "author": "Peeter Mäeots",
   "version": "0.1.0",
   "private": true,
+  "description": "A React.js client to show users table view with search by name functionality",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
@@ -10,6 +12,7 @@
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "http-proxy-middleware": "^2.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -39,5 +42,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:8888"
 }
