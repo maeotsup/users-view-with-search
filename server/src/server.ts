@@ -1,8 +1,8 @@
 require('dotenv').config();
-
 import express, { Express } from 'express';
 
 import { IGracefulShutdownProps } from './interfaces/server.interfaces';
+import setupRoutes from './routes';
 
 const { PORT } = process.env;
 
@@ -11,17 +11,12 @@ const port: string | undefined = PORT;
 
 app.use(express.json());
 
+setupRoutes(app);
+
 const gracefulShutdown = ({ message, callback }: IGracefulShutdownProps) => {
   console.log(message);
   callback();
 };
-
-process.once('SIGUSR2', () => {
-  gracefulShutdown({
-    message: 'Nodemon restart',
-    callback: () => process.kill(process.pid, 'SIGUSR2'),
-  });
-});
 
 process.on('SIGINT', () => {
   gracefulShutdown({
@@ -38,5 +33,5 @@ process.on('SIGTERM', () => {
 });
 
 app.listen(port, () => {
-  console.log('Server listening on port', port);
+  console.log('Server listening on port ', port);
 });
