@@ -1,36 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
 
+import UsersTable from './components/UsersTable';
 import { IUser } from '../../server/src/interfaces/user.interfaces';
 
 function App() {
   const [users, setUsers] = useState<IUser[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
   useEffect(() => {
+    setLoading(true);
     fetch('/api/users')
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
         setUsers(data);
+        setLoading(false);
       });
   }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        {!!users.length && users.map(user => (<p key={user.id}>{user.name}</p>))}
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="App">
+      <UsersTable loading={loading} users={users} />
     </div>
   );
 }
