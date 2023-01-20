@@ -1,11 +1,9 @@
 import './styles/root.css';
 
-import UsersTable from './components/UsersTable';
+import UsersView from './components/Views/UsersView';
 
 function App() {
-  return (
-    <UsersTable />
-  );
+  return <UsersView />;
 }
 
 export default App;

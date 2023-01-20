@@ -1,5 +1,5 @@
 import { Search, Grid, Header, Segment } from 'semantic-ui-react';
 
-const SearchInput = ({ users }: ISearchInputProps) =>{};
+const SearchInput = ({ }) =>{};
 
 export default SearchInput;
