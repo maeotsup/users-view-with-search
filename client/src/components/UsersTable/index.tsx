@@ -1,15 +1,17 @@
 import { useEffect } from 'react';
-import { Message, Table } from 'semantic-ui-react';
+import { Message } from 'semantic-ui-react';
 
 import { useAppSelector, useAppDispatch } from '../../hooks/store';
-import { fetchAllUsersAsync } from '../../store/slices/users';
+import { fetchAllUsersAsync, searchUsers } from '../../store/slices/users';
 import LoaderCentered from '../LoaderCentered';
-import TableHeader from './TableHeader';
-import TableBody from './TableBody';
+import Search from '../Search';
+import Table from './Table';
 
 const UsersTable = () => {
   const dispatch = useAppDispatch();
-  const { loading, users } = useAppSelector(store => store.users);
+  const { loading, searching, searchResults, users } = useAppSelector(store => store.users);
+
+  const handleSearchChange = (value: string) => { dispatch(searchUsers(value)) };
   
   useEffect(() => {
     const getUsersAsync = async () => await dispatch(fetchAllUsersAsync());
@@ -26,10 +28,10 @@ const UsersTable = () => {
         warning
       />
     ) : (
-      <Table celled padded='very' size='large' striped>
-        <TableHeader />
-        <TableBody users={users} />
-      </Table>
+      <>
+        <Search handleSearchFn={handleSearchChange} loading={searching} />
+        <Table searching={searching} searchResults={searchResults} />
+      </>
     );
 };
 
