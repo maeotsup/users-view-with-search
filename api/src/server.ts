@@ -1,5 +1,6 @@
 require('dotenv').config();
 import express, { Express } from 'express';
+import path from 'path';
 
 import { IGracefulShutdownProps } from './interfaces/server.interfaces';
 import setupRoutes from './routes';
@@ -31,6 +32,13 @@ process.on('SIGTERM', () => {
     callback: () => process.exit(0),
   });
 });
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../../../client/build')));
+  app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, '../../../client/build', 'index.html'));
+  });
+}
 
 app.listen(port, () => {
   console.log('Server listening on port ', port);
