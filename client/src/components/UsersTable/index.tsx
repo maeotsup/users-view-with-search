@@ -18,7 +18,7 @@ const UsersTable = () => {
 
   if (loading) return <LoaderCentered>Loading users...</LoaderCentered>;
 
-  return users
+  return !users
     ? (
       <Message
         header='Oops! No users found.'
