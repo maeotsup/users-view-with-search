@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import { TUser } from '../../server/src/types/TUser';
+import { TUser } from '../../api/src/types/TUser';
 
 function App() {
   const [users, setUsers] = useState<TUser[]>([]);
