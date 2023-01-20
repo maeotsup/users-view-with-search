@@ -2,7 +2,7 @@ import { AxiosResponse } from 'axios';
 
 import { axiosGet } from '../utilities/axios';
 import { IError } from '../interfaces/error.interfaces';
-import { IUsersResponse } from '../interfaces/user';
+import { IUsersResponse } from '../interfaces/user.interfaces';
 
 export const getUsers = async (): Promise<IUsersResponse | IError> => {
   try {

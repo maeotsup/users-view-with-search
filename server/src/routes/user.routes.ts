@@ -1,7 +1,7 @@
 import { Express } from 'express';
 
 import { getUsersController } from '../controllers/user.controller';
-import { IUsersResponse } from '../interfaces/user';
+import { IUsersResponse } from '../interfaces/user.interfaces';
 
 export default function setupProfileRoutes(app: Express) {
   app.get(`/api/users`, async (_req, res) => {

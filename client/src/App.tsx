@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import { TUser } from '../../api/src/types/TUser';
+import { IUser } from '../../server/src/interfaces/user.interfaces';
 
 function App() {
-  const [users, setUsers] = useState<TUser[]>([]);
+  const [users, setUsers] = useState<IUser[]>([]);
   useEffect(() => {
     fetch('/api/users')
       .then((response) => response.json())
