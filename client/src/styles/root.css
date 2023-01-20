@@ -3,6 +3,10 @@
   padding: 0 4% 4%;
 }
 
+.padding-2prc {
+  padding: 2%;
+}
+
 .flex-justify-content-center {
   display: flex !important;
   justify-content: center;
