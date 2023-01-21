@@ -7,7 +7,7 @@ const UsersView = () => {
   return (
     <>
       <UsersHeader />
-      <Container>
+      <Container className='content'>
         <UsersTable />
       </Container>
     </>
