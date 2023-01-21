@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
 import { Container, Search } from 'semantic-ui-react';
 
+import { useAppDispatch } from '../../hooks/store';
+
 interface ISearchInputProps {
   handleSearchFn: (value: string) => void;
-  loading: boolean;
+  placeholder: string;
+  setLoadingFn: (set: boolean) => any;
 }
 
-const SearchInput = ({ handleSearchFn, loading }: ISearchInputProps) => {
+const SearchInput = ({ handleSearchFn, placeholder, setLoadingFn }: ISearchInputProps) => {
+  const dispatch = useAppDispatch();
   const [value, setValue] = useState<string>('');
 
   const handleSearchChange = (e: React.SyntheticEvent) => {
     let target = e.target as HTMLInputElement;
     setValue(target.value);
+    dispatch(setLoadingFn(true));
     handleSearchFn(target.value);
   };
 
@@ -19,9 +24,8 @@ const SearchInput = ({ handleSearchFn, loading }: ISearchInputProps) => {
     <Container>
       <Search
         aligned='right'
-        loading={loading}
         onSearchChange={handleSearchChange}
-        placeholder='Search...'
+        placeholder={placeholder}
         showNoResults={false}
         defaultValue={value}
       />

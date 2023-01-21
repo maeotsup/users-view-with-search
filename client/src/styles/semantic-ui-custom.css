@@ -1,0 +1,10 @@
+.header-container {
+  padding: 2.5%;
+}
+.ui .search {
+  display: flex;
+  justify-content: end;
+}
+.ui.centered.inline.loader.active {
+  margin-top: 50px;
+}
