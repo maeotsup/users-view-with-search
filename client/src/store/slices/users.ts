@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-import type { RootState } from '../index';
 import { IUser } from '../../../../server/src/interfaces/user.interfaces';
 
 export const fetchAllUsersAsync = createAsyncThunk(
@@ -39,12 +38,14 @@ export const usersSlice = createSlice({
   initialState,
   reducers: {
     searchUsers: (state, action: PayloadAction<string>) => {
-      state.searching = true;
       const { payload } = action;
       const results = state.users?.filter(user => user.name.toLowerCase().includes(payload.toLowerCase()));
       if (!!results) state.noSearchResults = true;
       state.searchResults = results;
       state.searching = false;
+    },
+    setSearching: (state, action) => {
+      state.searching = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -64,6 +65,6 @@ export const usersSlice = createSlice({
   },
 });
 
-export const { searchUsers } = usersSlice.actions;
+export const { searchUsers, setSearching } = usersSlice.actions;
 
 export default usersSlice.reducer;

@@ -11,8 +11,8 @@ interface ITableComponentProps {
 }
 
 const TableWithSearchMessages = ({ searching, searchResults }: ITableComponentProps) => {
-  if (searching && !searchResults?.length) return (
-    <LoaderCentered>Searching users...</LoaderCentered>
+  if (searching) return (
+    <LoaderCentered>Searching for users...</LoaderCentered>
   );
 
   if (!searching && !searchResults?.length) return (
