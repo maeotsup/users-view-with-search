@@ -3,7 +3,7 @@
 This project displays users table with data populated from [jsonplaceholder.typicode.com/users](https://jsonplaceholder.typicode.com/users). End-user can search for users by name and the table data is updated with matching search results.
 
 This project was bootstrapped with [Express Js](https://expressjs.com/) and [Create React App](https://github.com/facebook/create-react-app) using [TypeScript](https://www.typescriptlang.org/).\
-Server and api layer is located in `/server` folder and client-side code is in `client` folder. 
+Server and api layer is located in `/server` folder and client-side code is in `/client` folder. 
 
 ## Getting started
 Enter the `/client` folder and run `yarn` to bootstrap client-side code. Then do the same inside `/server` folder.\
