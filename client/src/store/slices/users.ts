@@ -18,7 +18,7 @@ export const fetchAllUsersAsync = createAsyncThunk(
 
 interface UsersState {
   getUsersError: boolean;
-  loading: boolean;
+  loadingUsers: boolean;
   noSearchResults: boolean;
   searching: boolean;
   searchResults?: IUser[];
@@ -27,7 +27,7 @@ interface UsersState {
 
 const initialState: UsersState = {
   getUsersError: false,
-  loading: false,
+  loadingUsers: false,
   noSearchResults: false,
   searching: false,
   searchResults: undefined,
@@ -49,26 +49,21 @@ export const usersSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchAllUsersAsync.fulfilled, (state, action) => {
-      state.loading = false;
+      state.loadingUsers = false;
       state.users = action.payload as IUser[];
       state.searchResults = action.payload as IUser[];
     });
     builder.addCase(fetchAllUsersAsync.pending, (state) => {
       state.getUsersError = false;
-      state.loading = true;
+      state.loadingUsers = true;
     });
     builder.addCase(fetchAllUsersAsync.rejected, (state) => {
       state.getUsersError = true;
-      state.loading = false;
+      state.loadingUsers = false;
     });
   },
 });
 
 export const { searchUsers } = usersSlice.actions;
-
-export const selectGetUsersError = (state: RootState) => state.users.getUsersError;
-export const selectUsers = (state: RootState) => state.users.users;
-export const selectUsersLoading = (state: RootState) => state.users.loading;
-export const selectSearchResults = (state: RootState) => state.users.searchResults;
 
 export default usersSlice.reducer;
