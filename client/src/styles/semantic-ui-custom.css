@@ -1,9 +1,14 @@
 .header-container {
-  padding: 2.5%;
+  padding: 50px 30px 20px;
 }
 .ui .search {
   display: flex;
   justify-content: flex-end;
+}
+.ui.large.table,
+.ui.error.message,
+.ui.warning.message {
+  margin-top: 30px;
 }
 .ui.centered.inline.loader.active {
   margin-top: 50px;
