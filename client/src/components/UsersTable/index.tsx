@@ -39,7 +39,11 @@ const UsersTable = () => {
 
   return (
     <>
-      <Search handleSearchFn={debounce(handleSearchChange, 400)} setLoadingFn={setSearching} />
+      <Search
+        handleSearchFn={debounce(handleSearchChange, 400)}
+        placeholder='Search by name...'
+        setLoadingFn={setSearching}
+      />
       <TableWithSearchMessages searching={searching} searchResults={searchResults} />
     </>
   );

@@ -5,10 +5,11 @@ import { useAppDispatch } from '../../hooks/store';
 
 interface ISearchInputProps {
   handleSearchFn: (value: string) => void;
+  placeholder: string;
   setLoadingFn: (set: boolean) => any;
 }
 
-const SearchInput = ({ handleSearchFn, setLoadingFn }: ISearchInputProps) => {
+const SearchInput = ({ handleSearchFn, placeholder, setLoadingFn }: ISearchInputProps) => {
   const dispatch = useAppDispatch();
   const [value, setValue] = useState<string>('');
 
@@ -24,7 +25,7 @@ const SearchInput = ({ handleSearchFn, setLoadingFn }: ISearchInputProps) => {
       <Search
         aligned='right'
         onSearchChange={handleSearchChange}
-        placeholder='Search...'
+        placeholder={placeholder}
         showNoResults={false}
         defaultValue={value}
       />
