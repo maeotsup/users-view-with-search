@@ -6,17 +6,19 @@ import TableHeader from './TableHeader';
 import TableBody from './TableBody';
 
 interface ITableComponentProps {
+  noSearchResults: boolean;
   searching: boolean;
   searchResults?: IUser[];
 }
 
-const TableWithSearchMessages = ({ searching, searchResults }: ITableComponentProps) => {
+const TableWithSearchMessages = ({ noSearchResults, searching, searchResults }: ITableComponentProps) => {
   if (searching) return (
     <LoaderCentered>Searching for users...</LoaderCentered>
   );
 
-  if (!searching && !searchResults?.length) return (
+  if (noSearchResults) return (
     <Message
+      data-testid='no-search-results'
       header='No users found with entered name'
       className='flex-justify-content-center'
       warning

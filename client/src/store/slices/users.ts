@@ -27,8 +27,8 @@ interface UsersState {
 const initialState: UsersState = {
   getUsersError: false,
   loadingUsers: false,
-  noSearchResults: false,
   searching: false,
+  noSearchResults: false,
   searchResults: undefined,
   users: undefined,
 }
@@ -40,7 +40,9 @@ export const usersSlice = createSlice({
     searchUsers: (state, action: PayloadAction<string>) => {
       const { payload } = action;
       const results = state.users?.filter(user => user.name.toLowerCase().includes(payload.toLowerCase()));
-      if (!!results) state.noSearchResults = true;
+      !results?.length
+        ? state.noSearchResults = true
+        : state.noSearchResults = false;
       state.searchResults = results;
       state.searching = false;
     },
