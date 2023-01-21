@@ -59,7 +59,5 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `yarn start`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
 Builds the app for production to the `/server/build` and `/client/build` folders and also starts the server on port `3080`.\
 Open [http://localhost:3080](http://localhost:3080) to view it in the browser. API endpoints are available on the same port - for example [http://localhost:3080/api/users](http://localhost:3080/api/users).
