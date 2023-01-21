@@ -22,7 +22,6 @@ const SearchInput = ({ handleSearchFn, loading }: ISearchInputProps) => {
         loading={loading}
         onSearchChange={handleSearchChange}
         placeholder='Search...'
-        results={[]}
         showNoResults={false}
         defaultValue={value}
       />
