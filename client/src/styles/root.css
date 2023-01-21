@@ -1,13 +1,3 @@
 #root {
   min-height: 100vh;
 }
-.padding-2prc {
-  padding: 2%;
-}
-.ui .search {
-  display: flex;
-  justify-content: end;
-}
-.ui.centered.inline.loader.active {
-  margin-top: 20px;
-}
