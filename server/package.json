@@ -7,12 +7,12 @@
   "main": "build/dist/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx tsc && cd ../client && npm run build",
-    "dev": "nodemon --exec \"npm run dev:concurrently\"",
-    "dev:client": "cd ../client && npm run dev",
+    "build": "npx tsc && cd ../client && yarn build",
+    "dev": "nodemon --exec \"yarn dev:concurrently\"",
+    "dev:client": "cd ../client && yarn dev",
     "dev:server": "npx tsc && node build/dist/server.js",
-    "dev:concurrently": "concurrently --kill-others-on-fail \"npm run dev:server\" \"npm run dev:client\"",
-    "start": "npm run build && NODE_ENV=production node build/dist/server.js"
+    "dev:concurrently": "concurrently --kill-others-on-fail \"yarn dev:server\" \"yarn dev:client\"",
+    "start": "yarn build && NODE_ENV=production node build/dist/server.js"
   },
   "dependencies": {
     "axios": "^1.2.3",
