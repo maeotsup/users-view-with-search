@@ -3,7 +3,7 @@
 }
 .ui .search {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 .ui.centered.inline.loader.active {
   margin-top: 50px;
