@@ -10,7 +10,7 @@ interface ITableComponentProps {
   searchResults?: IUser[];
 }
 
-const TableComponent = ({ searching, searchResults }: ITableComponentProps) => {
+const TableWithSearchMessages = ({ searching, searchResults }: ITableComponentProps) => {
   if (searching && !searchResults?.length) return (
     <LoaderCentered>Searching users...</LoaderCentered>
   );
@@ -31,4 +31,4 @@ const TableComponent = ({ searching, searchResults }: ITableComponentProps) => {
   );
 };
 
-export default TableComponent;
+export default TableWithSearchMessages;
