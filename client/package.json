@@ -28,8 +28,7 @@
     "dev": "npm start",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": [
@@ -51,7 +50,5 @@
   },
   "homepage": ".",
   "proxy": "http://localhost:3080",
-  "devDependencies": {
-    "@types/semantic-ui": "^2.2.7"
-  }
+  "devDependencies": {}
 }
