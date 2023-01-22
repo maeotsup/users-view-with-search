@@ -31,7 +31,11 @@
     "allowUnusedLabels": false,
 
     /* Completeness */
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "baseUrl": "src",
+    "paths": {
+      "test-utils": ["./test/utilities/test-utilities"]
+    }
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "build/dist"]
