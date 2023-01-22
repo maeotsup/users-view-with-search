@@ -1,4 +1,4 @@
-import { screen } from '@testing-library/react'
+import { screen } from '@testing-library/react';
 
 import { setupStore } from '../../store';
 import { renderWithProviders } from '../utilities/test-utilities';

@@ -49,6 +49,5 @@
     ]
   },
   "homepage": ".",
-  "proxy": "http://localhost:3080",
-  "devDependencies": {}
+  "proxy": "http://localhost:3080"
 }
