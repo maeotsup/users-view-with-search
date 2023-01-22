@@ -11,7 +11,6 @@ import TableWithSearchMessages from './TableWithSearchMessages';
 const UsersTable = () => {
   const dispatch = useAppDispatch();
   const {
-    getUsersError,
     loadingUsers,
     noSearchResults,
     searching,
@@ -26,14 +25,6 @@ const UsersTable = () => {
   }, [dispatch]);
 
   if (loadingUsers) return <LoaderCentered>Loading users...</LoaderCentered>;
-
-  if (getUsersError) return (
-    <Message
-      data-testid='get-users-error'
-      error
-      header='Oops! Something went wrong on our end. Please try again later.'
-    />
-  );
 
   if (!searchResults) return (
     <Message
