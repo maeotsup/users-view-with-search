@@ -6,7 +6,7 @@
   "description": "A Express.js server for users table view with search by name functionality client",
   "main": "build/dist/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cd ../client && yarn test",
     "build": "npx tsc && cd ../client && yarn build",
     "dev": "nodemon --exec \"yarn dev:concurrently\"",
     "dev:client": "cd ../client && yarn dev",
