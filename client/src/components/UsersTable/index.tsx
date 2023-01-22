@@ -10,7 +10,12 @@ import TableWithSearchMessages from './TableWithSearchMessages';
 
 const UsersTable = () => {
   const dispatch = useAppDispatch();
-  const { getUsersError, loadingUsers, searching, searchResults } = useAppSelector(store => store.users);
+  const {
+    loadingUsers,
+    noSearchResults,
+    searching,
+    searchResults
+  } = useAppSelector(store => store.users);
 
   const handleSearchChange = (value: string) => { void dispatch(searchUsers(value)) };
   
@@ -21,17 +26,9 @@ const UsersTable = () => {
 
   if (loadingUsers) return <LoaderCentered>Loading users...</LoaderCentered>;
 
-  if (getUsersError) return (
-    <Message
-      error
-      className='flex-justify-content-center'
-      header='Oops! Something went wrong on our end. Please try again later.'
-    />
-  );
-
   if (!searchResults) return (
     <Message
-      className='flex-justify-content-center'
+      data-testid='no-users'
       header='No users found.'
       warning
     />
@@ -44,7 +41,7 @@ const UsersTable = () => {
         placeholder='Search by name...'
         setLoadingFn={setSearching}
       />
-      <TableWithSearchMessages searching={searching} searchResults={searchResults} />
+      <TableWithSearchMessages noSearchResults={noSearchResults} searching={searching} searchResults={searchResults} />
     </>
   );
 };
