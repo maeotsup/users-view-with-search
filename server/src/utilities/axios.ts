@@ -8,7 +8,6 @@ export const axiosGet = async <T>(url: string): Promise<AxiosResponse<T> | Axios
   try {
     return await axios.get<T>(url);
   } catch (error: unknown) {
-    console.log(error);
     if (isAxiosError<T>(error)) {
       return { error: error.message };
     }

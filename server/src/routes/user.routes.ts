@@ -3,7 +3,7 @@ import { Express } from 'express';
 import { getUsersController } from '../controllers/user.controller';
 import { IUsersResponse } from '../interfaces/user.interfaces';
 
-export default function setupProfileRoutes(app: Express) {
+export default function setupUserRoutes(app: Express) {
   app.get(`/api/users`, async (_req, res) => {
     try {
       const response = await getUsersController() as IUsersResponse;
